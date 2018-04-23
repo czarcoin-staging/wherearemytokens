@@ -10,7 +10,9 @@ in the Googlescript language. A Javascript variation used to interact with Googl
 Prerequisites
 
 In order to run the scripts, 
+
 -You must be included as a member of the wherermytokens@storj.io inbox(not misspelled).
+
 -You must get access to the "Where are my tokens" spreadsheet.
 
 How to run
@@ -41,13 +43,17 @@ How does it solve this problem: It calls Ethplorer's /getAddressHistory/{eth add
 results by the following criteria:
 
 -Must be a STORJ token transaction(0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC)
+
 -Must be an "inbound" transaction as we are only interested if they have "received" from us.
+
 -Transaction must match the amount in the sheet that the converter recognized was deposited.
 
 Once all of the above criteria is met, the following information is written to the following columns.
 
 -Eth TX in Column J
+
 -TX status in Column L
+
 -"Y" or "N" in Column M depending on the TX status
 
 2.C.No transactions associated with addresses
@@ -62,8 +68,11 @@ present then calls Xchain's getSends/{addy} for the rest of values needed The fo
 the following columns from the response.
 
 -Wallet balance in column H
+
 -TX hash for the deposit in column I
+
 -Source address in column J
+
 -"Y" or "N" in column K
 
 
@@ -72,8 +81,11 @@ the following columns from the response.
 Whats wrong: Columns A-D are populated from Typeform submission. They include the following data:
 
 -Email
+
 -Amount
+
 -btc TX proving they deposited their SJCX successfully 
+
 -Eth addy to send STORJ to if their inquiry proves valid.
 
 These users claim they have not received their converted tokens yet.
@@ -82,10 +94,15 @@ How does it solve this problem: The script searches all three data dump tabs sim
 found, the following data is written to the following columns.
 
 -"Y" or "N" in column E to specify whether the inquiry was found in any of the data dump tabs
+
 -The tab in which the inquiry was found in column F
+
 -Row number in column G
+
 -Eth addy that payment was sent to in column H
+
 -Eth tx status of that payment in column I
+
 -"Y" if the addy we sent to matches the address they wanted their STORJ sent to or, it writes the address we
 actually sent to if it does not match.
 
