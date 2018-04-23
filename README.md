@@ -3,15 +3,18 @@
 Faris Huskovic 
 
 Where Are My Tokens?
+
 Scripts designed to automate the investigation of failed token conversions. The scripts are written
 in the Googlescript language. A Javascript variation used to interact with Google drive services.
 
 Prerequisites
+
 In order to run the scripts, 
 -You must be included as a member of the wherermytokens@storj.io inbox(not misspelled).
 -You must get access to the "Where are my tokens" spreadsheet.
 
 How to run
+
 Go to Tools/script-editor/{select correct script}
 
 In the event the scripts have been removed from the spread sheet itself, copy and paste the source code 
@@ -23,8 +26,7 @@ Description of Scripts
 
 2.A.Contains both eth_tx_hash and conversion time
 
-Whats wrong: These are conversions logged as successful. They need to be double-checked as sometimes the
-converter can log failed transactions as successful.
+Whats wrong: These are conversions logged as successful. They need to be double-checked as sometimes the converter can log failed transactions as successful.
 
 How does it solve this problem: It calls Ethplorers /getTXInfo/{TX hash} method and writes the success status
 into 2A col L and if its failed and needs to be paid manually it will write "Y" or "N" values accordingly in
@@ -43,6 +45,7 @@ results by the following criteria:
 -Transaction must match the amount in the sheet that the converter recognized was deposited.
 
 Once all of the above criteria is met, the following information is written to the following columns.
+
 -Eth TX in Column J
 -TX status in Column L
 -"Y" or "N" in Column M depending on the TX status
