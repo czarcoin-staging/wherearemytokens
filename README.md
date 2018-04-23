@@ -2,12 +2,12 @@
 
 Faris Huskovic 
 
-Where Are My Tokens?
+# H1 Where Are My Tokens?
 
 Scripts designed to automate the investigation of failed token conversions. The scripts are written
 in the Googlescript language. A Javascript variation used to interact with Google drive services.
 
-Prerequisites
+## H2 Prerequisites
 
 In order to run the scripts, 
 
@@ -15,7 +15,7 @@ In order to run the scripts,
 
 -You must get access to the "Where are my tokens" spreadsheet.
 
-How to run
+## H2 How to run
 
 Go to Tools/script-editor/{select correct script}
 
@@ -24,22 +24,30 @@ from this repo to a new Code.gs file for the appropriate tab.
 
 Press the "Play" Button and missing values will begin populating in the scripts corresponding sheet.
 
-Description of Scripts 
+## H2 Description of Scripts 
 
-2.A.Contains both eth_tx_hash and conversion time
+### H3 2.A.Contains both eth_tx_hash and conversion time
 
-Whats wrong: These are conversions logged as successful. They need to be double-checked as sometimes the converter can log failed transactions as successful.
+### H3 Whats wrong: 
 
-How does it solve this problem: It calls Ethplorers /getTXInfo/{TX hash} method and writes the success status
+These are conversions logged as successful. They need to be double-checked as sometimes the converter can log failed transactions as successful.
+
+### H3 How does it solve this problem: 
+
+It calls Ethplorers /getTXInfo/{TX hash} method and writes the success status
 into 2A col L and if its failed and needs to be paid manually it will write "Y" or "N" values accordingly in
 col M.
 
-2.B.Missing eth_tx_hash
+### H3  2.B.Missing eth_tx_hash
 
-Whats wrong: The eth addresses in this sheet either had STORJ sent to them successfully or unsuccessfully
+### H3 Whats wrong: 
+
+The eth addresses in this sheet either had STORJ sent to them successfully or unsuccessfully
 and perhaps were never even sent any STORJ at all. We don't know because their is no ETH TX.
 
-How does it solve this problem: It calls Ethplorer's /getAddressHistory/{eth addh} method and filters the
+### H3 How does it solve this problem: 
+
+It calls Ethplorer's /getAddressHistory/{eth addh} method and filters the
 results by the following criteria:
 
 -Must be a STORJ token transaction(0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC)
@@ -56,14 +64,18 @@ Once all of the above criteria is met, the following information is written to t
 
 -"Y" or "N" in Column M depending on the TX status
 
-2.C.No transactions associated with addresses
+### H3  2.C.No transactions associated with addresses
 
-Whats wrong: We only have a converter wallet addy and eth address to work with. No TX's were ever logged for 
+### H3 Whats wrong: 
+
+We only have a converter wallet addy and eth address to work with. No TX's were ever logged for 
 any of these and therefore do not know which addresses successfully received SJCX. Because the converter
 failed to recognize receiving any SJCX and logging the btc TX hash, it never sent out any STORJ to the 
 corresponding Eth addy. Which is why an Eth TX was never logged.
 
-How does it solve this problem: Xchain's /getBalances/{addy} is called for each address and if a balance is 
+### H3 How does it solve this problem: 
+
+Xchain's /getBalances/{addy} is called for each address and if a balance is 
 present then calls Xchain's getSends/{addy} for the rest of values needed The following values are written to 
 the following columns from the response.
 
@@ -76,9 +88,11 @@ the following columns from the response.
 -"Y" or "N" in column K
 
 
-1.New Inquiries
+### H3  1.New Inquiries
 
-Whats wrong: Columns A-D are populated from Typeform submission. They include the following data:
+### H3 Whats wrong: 
+
+Columns A-D are populated from Typeform submission. They include the following data:
 
 -Email
 
@@ -90,7 +104,9 @@ Whats wrong: Columns A-D are populated from Typeform submission. They include th
 
 These users claim they have not received their converted tokens yet.
 
-How does it solve this problem: The script searches all three data dump tabs simultaneously by row. When a match is
+### H3 How does it solve this problem: 
+
+The script searches all three data dump tabs simultaneously by row. When a match is
 found, the following data is written to the following columns.
 
 -"Y" or "N" in column E to specify whether the inquiry was found in any of the data dump tabs
