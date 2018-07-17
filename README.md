@@ -2,6 +2,8 @@
 
 # Where Are My Tokens?
 
+by Faris Huskovic
+
 Scripts designed to automate the investigation of failed token conversions. The scripts are written
 in the Googlescript language. A Javascript variation used to interact with Google drive services.
 
