@@ -125,4 +125,7 @@ actually sent to if it does not match.
 This is all the information we need to answer their request almost as soon as it comes in and the script is run.
 The tab does not have to be full for the script to run. It can be run every time a new inquiry is added.
 
+## License
+
+This repository is licensed under an [AGPLv3](LICENSE) license. If you would like to submit PRs, we request that all of our contributors sign our [Contributor License Agreement (CLA)](https://docs.google.com/forms/d/e/1FAIpQLSdVzD5W8rx-J_jLaPuG31nbOzS8yhNIIu4yHvzonji6NeZ4ig/viewform) so that we can relicense the code under Apache v2, or other licenses in the future.
 
